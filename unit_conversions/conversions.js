@@ -75,16 +75,45 @@ const sizecomparisions = {
 }//in m 
 
 const weightcomparisions = {
+  'the mass of a graviton': 8.9e-59,
+  'the mass equivalent of an electron volt (eV)': 1.8e-36,
+  'the mass of a neutrino': 3.6e-36,
+  'the mass of an electron': 9.11e-31,
   'the mass of a proton': 1.6726e-27,
   'the mass of a hydrogen atom': 1.6735e-27,
+  'the mass of a water molecule': 3e-26,
+  'the weight of a caffeine mollecule': 3.2e-25,
   'the mass of a virus': 1e-17,
+  'an average human cell weight': 1e-12,
+  'a grain of birch pollen': 8e-12,
   'the weight of a mosquito': 2.5e-6,
-  'the weight of a large dog': 50,
+  'one carat': 2e-4,
+  'one raisin': 5e-4,
+  'the weight of a US dollar bill': 1e-3,
+  'the weight of an adult mouse': 3e-2,
+  'the weight of a major league baseball': 0.145,
+  'the weight of an infants brain': 0.4,
+  'the weight of a human brain': 1.35,
+  'the weight of an IKEA Billy': 35.25,
+  'the weight of bag of cement': 42,
   'the weight of a car': 1500,
   'the launch mass of the Space Shuttle': 2e6,
+  'the weight of the Titanic': 5.2e7,
+  'the weight of the great Pyramid of Giza': 6e9,
+  'the total biomass of antarctic krill': 4e11,
+  'a teaspoon of neutron star material': 5.5e12,
+  'the global annual human carbon dioxide emission': 4e13,
+  'the ammount of matter converted into energy by the sun every day': 3.715e14,
+  'the ammount of carbon stored in the oceans': 3.8e16,
+  'the mass of earths atmosphere': 5.1e18,
   'the mass of the moon': 7.3e22,
   'the mass of the earth': 6.0e24,
+  'the mass of Uranus': 8.7e25,
+  'the mass of Saturn': 5.7e26,
+  'the mass of Jupiter': 1.9e27,
   'the mass of the sun': 2e30,
+  'the supermassive black hole at the center of the Milky Way': 7.5e36,
+  'the entire Milky Way galaxy': 1.2e42,
   'the Mass of the observable universe as estimated by NASA': 4.4506e52,
 }//in m 
 
@@ -100,15 +129,15 @@ function initComparisions(comparisions, idsuffix) {
     tmpObj.values.push(value)
     tmpObj.descriptions.push(key)
   }
+  convert(tmpObj)
+  console.log(comparisions);
   return tmpObj
 }
 
+//initialize the converters
 var energies = initComparisions(energycomparisions, "energy")
 var distances = initComparisions(sizecomparisions, "distance")
 var masses = initComparisions(weightcomparisions, "mass")
-convert(energies)
-convert(distances)
-convert(masses)
 
 function convert(compObject) {
   var energy = parseFloat(compObject.input.value)
