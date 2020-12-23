@@ -1,58 +1,104 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-179475953-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
 
-      gtag('config', 'UA-179475953-1');
-    </script>
-    <meta charset="utf-8">
-    <title></title>
-    <!-- MOBILE––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- CSS––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/darkskelleton.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="column" style="margin-top: 25%">
-          <h4>Template page</h4>
-          <hr>
-          <p>A small paragraph</p>
-        </div>
-      </div>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-179475953-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-      <div class="row">
-        <div class="one-third column">
-          <label for="inputrange">inputrange</label>
-          <input id="inputrange" type="range" name="" value="">
-        </div>
-        <div class="one-third column">
-          <h3>an amazing heading</h3>
-          <p>interesting paragraph with a bit of text and...</p>
-          <button type="button" name="button">some cool button</button>
-          <button type="button" class="button-primary" name="button">button</button>
+    gtag('config', 'UA-179475953-1');
+  </script>
+  <meta charset="utf-8">
+  <title>Conversions</title>
+  <!-- MOBILE––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
 
-        </div>
-        <div class="one-third column">
-          <img src="images/favicon.png" class="u-max-full-width" alt="and a fun image">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript" src="scripts/script.js"></script>
+<style>
+  html {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-size: 120%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #555;
+    background: #ecf0f3;
+    padding: 20px;
+  }
+
+  section {
+    justify-content: center;
+    text-align: center;
+    padding: 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+      -13px -13px 20px #ffffff;
+    margin-bottom: 40px;
+    width: -webkit-fill-available;
+    max-width: 700px;
+    width: 80%;
+  }
+
+  input {
+    margin-bottom: 30px;
+    border-radius: 35px;
+    box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #ffffff;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 35px 20px 5px;
+    text-align: right;
+    transition: all 0.3s ease-in-out;
+  }
+
+  input:hover {
+    box-shadow: none;
+  }
+
+  input:focus {
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  }
+</style>
+
+<body>
+  <h1>Unit Conversions</h1>
+  <section>
+    <h3>Energy</h3>
+    <input id="inputenergy" oninput="convert(energies)" value="12"></input>
+    <span style="margin-left:-35px;">J</span>
+    <p id="outputenergy">&#8203;</p>
+  </section>
+
+  <section>
+    <h3>Distance</h3>
+    <input id="inputdistance" oninput="convert(distances)" value="100"></input>
+    <span style="margin-left:-35px;">m</span>
+    <p id="outputdistance">&#8203;</p>
+  </section>
+
+  <section>
+    <h3>Mass</h3>
+    <input id="inputmass" oninput="convert(masses)" value="25"></input>
+    <span style="margin-left:-35px;">kg</span>
+    <p id="outputmass">&#8203;</p>
+  </section>
+
+  <script type="text/javascript" src="unit_conversions/conversions.js"></script>
 </body>
+
 </html>
