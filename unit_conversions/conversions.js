@@ -11,7 +11,7 @@ const energycomparisions = {
   'a single calorie': 4.19,
   'the nutritional energy of a peanut': 11.88,
   'the energy of an amateur punch': 40,
-  'the kinetic energy of a handgun bullet': 400,
+  'the kinetic energy of tennis ball at serve': 116,
   'the energy required to ascend a flight of stairs': 5520,
   'kinetic energy of Usain Bolt at top speed': 6192,
   'your daily nutritional energy intake': 40578,
