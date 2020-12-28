@@ -22,6 +22,7 @@ const energycomparisions = {
   //'the energy of a kg of TNT': 4.2e6,
   'enough energy to get 1kg out of earths gravitational field': 6.24962e7,
   'yearly energy produced by the worlds largest nuclear powerplant': 7.965e9,
+  'enough energy to power a household for one year': 3.938e10,
   'the energy released by the fission of 1g of Uranium': 8.2e10,
   'the daily energy emitted by the sun': 1.86e13,
   'the explosive energy of the little Boy nuclear bomb': 6e13,
