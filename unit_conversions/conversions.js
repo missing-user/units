@@ -73,6 +73,11 @@ const sizecomparisions = {
   'the size of our solar system': 5.9e12,
   'one lightyear': 9.461e15,
   'the size of the milky way': 4.7e17,
+  'the distance to the center of our galaxy': 2.649e20,
+  'the distance to the Andromeda galaxy': 2.365e22,
+  'the size of our local supercluster': 1.902e24,
+  'the distance to the furthest known star': 1.239e26,
+  'the size of the entire universe': 8.798e26,
 }//in m 
 
 const weightcomparisions = {
