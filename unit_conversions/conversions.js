@@ -1,13 +1,13 @@
 const energycomparisions = {
-  'smallest physically possible energy (wavelength the size of the visible universe)': 1.602e-50,
+  'the smallest physically possible energy (wavelength the size of the visible universe)': 1.602e-50,
   'a single electron Volt (eV)': 1.602e-19,
-  'energy of a photon of green light': 3.973e-19,
-  'mass energy equivalent of an electron': 8.1871e-14,
-  'mass energy equivalent of a hydrogen atom': 1.5e-10,
-  'approximate kinetic energy of a flying mosquito': 1.6e-7,
-  'kinetic energy of a walking ant': 1.28e-5,
-  'acoustic energy of a whisper': 1e-2,
-  'lifting a bar of chocolate 1m': 0.981,
+  'the energy of a photon of green light': 3.973e-19,
+  'the mass energy equivalent of an electron': 8.1871e-14,
+  'the mass energy equivalent of a hydrogen atom': 1.5e-10,
+  'the approximate kinetic energy of a flying mosquito': 1.6e-7,
+  'the kinetic energy of a walking ant': 1.28e-5,
+  'the acoustic energy of a whisper': 1e-2,
+  'the amount of energy to lift a bar of chocolate 1m': 0.981,
   'a single calorie': 4.19,
   'the nutritional energy of a peanut': 11.88,
   'the energy of an amateur punch': 40,
@@ -20,27 +20,25 @@ const energycomparisions = {
   'potential energy required to climb the Burj Khalifa staircase': 1.338e6,
   'energy required to run a marathon': 8.74e6,
   //'the energy of a kg of TNT': 4.2e6,
-  'enough energy to get 1kg out of earths gravitational field': 6.24962e7,
-  'yearly energy produced by the worlds largest nuclear powerplant': 7.965e9,
+  'enough energy to shoot 1kg of mass out of earths gravitational well': 6.24962e7,
+  'the energy produced by the worlds largest nuclear powerplant every year': 7.965e9,
   'enough energy to power a household for one year': 3.938e10,
   'the energy released by the fission of 1g of Uranium': 8.2e10,
-  'the daily energy emitted by the sun': 1.86e13,
   'the explosive energy of the little Boy nuclear bomb': 6e13,
-  'released by a hurricane in one second': 62e14,
+  'the energy released by a hurricane in one second': 62e14,
   'yearly energy consumption of the CERN particle accelerator': 4.68e15,
-  'impact energy of the forming Meteor Crater, Arizona': 1e16,
-  'solar energy hitting earth every second': 1.73e17,
+  'the solar energy hitting earth every second': 1.73e17,
   'the yearly wind energy production': 1.607e18,
   'the yearly nuclear energy production': 9.565e18,
-  'US yearly energy production': 8.357e19,
+  'the US yearly energy production': 8.357e19,
   'Chinas yearly energy production': 1.074e20,
-  'yearly global energy production': 5.369e20,
+  'the global energy production per year': 5.369e20,
   'gravitational binding energy of the earth': 2.49e32,
-  'energy released by the sun in a year': 1.21e34,
+  'the amount of energy released by the sun in a year': 1.21e34,
   'a weak supernova explosion': 1.5e44,
   'a strong supernova explosion': 1e46,
-  "mass-energy equivalent of the galaxy's visible mass": 4e58,
-  'estimated mass-energy equivalent of ALL OF the universe': 2e69
+  "the mass-energy equivalent of the galaxy's visible mass": 4e58,
+  'the estimated mass-energy equivalent of ALL OF the universe': 2e69
 }//in J
 
 const sizecomparisions = {
@@ -147,6 +145,7 @@ var masses = initComparisions(weightcomparisions, "mass")
 
 function convert(compObject) {
   var energy = parseFloat(compObject.input.value)
+  energy = Math.abs(energy)
 
   if (energy != 0 && !isNaN(energy)) {
     var compIndex = findClosest(energy, compObject.values) //find the index of the closest comparision
