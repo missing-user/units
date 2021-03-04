@@ -59,7 +59,10 @@ const sizecomparisions = {
   'the average height of a Japanese person': 1.72,
   'the average height of a Vietnamese man': 1.68,
   'the length of a VW beatle': 4.08,
+  'the height of a two story building': 6,
   'the average oak tree height': 20,
+  'the length of a soccer field': 100,
+  'the height of the Burj Khalifa skyscraper': 829.8,
   'the height of Mount Everest': 8849,
   'the distance of a marathon run': 42200,
   'the distance from Berlin to Munich': 5.08e5,
@@ -149,26 +152,33 @@ function convert(compObject) {
 
   if (energy != 0 && !isNaN(energy)) {
     var compIndex = findClosest(energy, compObject.values) //find the index of the closest comparision
-    var compe = compObject.values[compIndex]
-    console.log(compe);
 
-    var multiplier = energy / compe
-    var prefix = ""
-    if (multiplier == 0.5) {
-      prefix = 'half '
-    } else if (multiplier < 1 && multiplier > 0.0001) {
-      prefix = (multiplier * 100).toPrecision(2) + '% of '
-    } else if (multiplier >= 1e6) {
-      prefix = (multiplier / 1e6).toPrecision(2) + ' million times '
-    } else if (multiplier >= 1000) {
-      prefix = (multiplier / 1000).toPrecision(2) + ' thousand times '
-    } else {
-      prefix = (multiplier).toPrecision(3) + ' times '
+    function makeComparision(ci) {
+      var compe = compObject.values[ci]
+      var multiplier = energy / compe
+      var prefix = ""
+      if (multiplier == 0.5) {
+        prefix = 'half '
+      } else if (multiplier < 1 && multiplier > 0.0001) {
+        prefix = (multiplier * 100).toPrecision(2) + '% of '
+      } else if (multiplier >= 1e6) {
+        prefix = (multiplier / 1e6).toPrecision(2) + ' million times '
+      } else if (multiplier >= 1000) {
+        prefix = (multiplier / 1000).toPrecision(2) + ' thousand times '
+      } else {
+        prefix = (multiplier).toPrecision(3) + ' times '
+      }
+      console.log('rounding error: ', ((0.01 - multiplier * compe / energy / 100)).toPrecision(3), '%');
+      return prefix + compObject.descriptions[ci]
     }
-    compObject.output.textContent = prefix + compObject.descriptions[compIndex]
-    console.log('rounding error: ', ((0.01 - multiplier * compe / energy / 100)).toPrecision(3), '%');
+
+    compObject.output.children[0].textContent = makeComparision(compIndex - 1)
+    compObject.output.children[1].textContent = makeComparision(compIndex)
+    compObject.output.children[2].textContent = makeComparision(compIndex + 1)
   } else
-    compObject.output.innerHTML = '&#8203;'
+    for (const child of compObject.output.children) {
+      child.textContent = '​'
+    }
 }
 
 function findClosest(ref, values) {
