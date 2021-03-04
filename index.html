@@ -60,10 +60,12 @@
     transition: all 0.3s ease-in-out;
   }
 
+
+
   @media screen and (min-width: 600px) {
     input {
       width: auto;
-    }
+    } 
   }
 
   input:hover {
@@ -74,6 +76,36 @@
     box-shadow: inset 8px 8px 8px #cbced1,
       inset -8px -8px 8px #ffffff;
   }
+
+  .cycler{
+	  overflow: hidden;
+    height: 3em;
+  }
+
+  .cycler p{
+    left: 0;
+    right: 0;
+    position: absolute;
+	  animation: rotateWord 6s linear infinite 0s;
+  }
+  .cycler p:nth-child(2) { 
+    opacity: 0;
+	  animation-delay: 2s;
+  }
+  .cycler p:nth-child(3) { 
+    opacity: 0;
+	  animation-delay: 4s;
+  }
+
+  @keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+    32% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+	34% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
 </style>
 
 <body>
@@ -82,21 +114,33 @@
     <h3>Energy</h3>
     <input id="inputenergy" type="number" oninput="convert(energies)" value="12"></input>
     <span style="margin-left:-35px;">J</span>
-    <p id="outputenergy">&#8203;</p>
+    <div class="cycler" id="outputenergy">
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+    </div>
   </section>
 
   <section>
     <h3>Distance</h3>
     <input id="inputdistance" type="number" oninput="convert(distances)" value="100"></input>
     <span style="margin-left:-35px;">m</span>
-    <p id="outputdistance">&#8203;</p>
+    <div class="cycler" id="outputdistance">
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+    </div>
   </section>
 
   <section>
     <h3>Mass</h3>
     <input id="inputmass" type="number" oninput="convert(masses)" value="25"></input>
     <span style="margin-left:-35px;">kg</span>
-    <p id="outputmass">&#8203;</p>
+    <div class="cycler" id="outputmass">
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+      <p>&#8203;</p>
+    </div>
   </section>
 
   <script type="text/javascript" src="unit_conversions/conversions.js"></script>
