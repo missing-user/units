@@ -178,29 +178,29 @@ function convert(compObject) {
       var prefix = ""
       if (multiplier == 0.5) {
         prefix = 'half '
-      } else if (multiplier < 1 && multiplier > 0.0001) {
-        prefix = (multiplier * 100).toPrecision(2) + '% of '
+      } else if (multiplier < 1 && multiplier > 0.000001) {
+        prefix = +(multiplier * 100).toPrecision(2) + '% of '
+      } else if (multiplier >= 1e12) {
+        prefix = +(multiplier / 1e12).toPrecision(3) + ' trillion times '
+      } else if (multiplier >= 1e9) {
+        prefix = +(multiplier / 1e9).toPrecision(3) + ' billion times '
       } else if (multiplier >= 1e6) {
-        prefix = (multiplier / 1e6).toPrecision(2) + ' million times '
+        prefix = +(multiplier / 1e6).toPrecision(3) + ' million times '
       } else if (multiplier >= 1000) {
-        prefix = (multiplier / 1000).toPrecision(2) + ' thousand times '
+        prefix = +(multiplier / 1000).toPrecision(3) + ' thousand times '
       } else {
-        prefix = (multiplier).toPrecision(3) + ' times '
+        prefix = +(multiplier).toPrecision(3) + ' times '
       }
       console.log('rounding error: ', ((0.01 - multiplier * compe / energy / 100)).toPrecision(3), '%');
       return prefix + compObject.descriptions[ci]
     }
 
-    compObject.output.textContent = makeComparision(compIndex)
+    //compObject.output.textContent = makeComparision(compIndex)
     //select a random comparision that's somewhat sensible
     function randomInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    let randIndex = randomInteger(compIndex-6, compIndex+4)
-    if(randIndex>=compObject.values.length)
-      randIndex = compObject.values.length-1
-    if(randIndex<=0)
-      randIndex=0
+    let randIndex = randomInteger(Math.max(compIndex-7, 0),Math.min(compIndex+5, compObject.values.length-1))
     compObject.output.textContent = makeComparision(randIndex)
   } else
     compObject.output.textContent = '​'
